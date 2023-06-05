@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++.exe 建置使用中檔案",
+            "command": "gcc",
+            "args": [
+                "-g",
+                "${file}",
+                "-Wall",
+                "-Wextra",
+                "-O0",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.out"
+            ],
+            "options": {
+                "cwd": "C:\\Cygwin64\\bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "編譯器: C:\\Cygwin64\\bin\\gcc.exe"
+        }
+    ]
+}
