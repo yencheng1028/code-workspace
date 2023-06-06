@@ -24,7 +24,8 @@ int main(void)
     */
     printf("git log ");
     printf("git checkout {編號} ");
-
+    printf(" git checkout master");
+    
     printf(" ");
         
     return 0;
