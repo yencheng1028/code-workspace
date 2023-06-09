@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void PrtAry(float *ary);
+void PrtAry(float* ary);
+void AvgPrcp(float *ary);
 
 int main(void)
 {
@@ -25,12 +26,13 @@ int main(void)
     }
     printf("\n");
     PrtAry(&data[0][0]);
+    AvgPrcp(&data[0][0]);
 
     getchar();
     return 0;
 }
 
-void PrtAry(float *ary)
+void PrtAry(float *ary)     // print array contents
 {
     int i, j;
 
@@ -42,4 +44,20 @@ void PrtAry(float *ary)
         }
         printf("\n");
     }
+    return;
+}
+
+void AvgPrcp(float* ary)    // Average rainfall from January to May
+{
+    int i;
+    float avg,sum=0;
+    
+    for (i = 0; i < 5; i++)
+        sum += ary[i * 7 + 4];
+
+    avg = sum / 5;
+
+    printf("The Average Precipitation is %.2f mm.",avg );
+    
+    return;
 }
