@@ -1,0 +1,35 @@
+cd 資料夾
+gcc exam1.c -o exam1 
+
+// -o 表示輸出要變成哪個檔名
+
+cd 資料夾
+git init        //建本地數據庫
+touch + 檔案名稱    //建立新檔案
+
+(code . )      // 開啟vscode
+ git status 
+
+git add .    // 加入索引目錄 .加全部檔案
+git add [檔名] 
+   
+
+    git commit -m [名稱] 
+    git log 
+
+// 查看commit 記錄
+//  github create new repository
+//  註冊遠端儲存庫
+
+    git remote add origin {遠端儲存庫網址}
+    git push -u origin master
+
+/*
+        更新資料到遠端 master 分支：git push -u origin master
+        -u 是指他預設會推到哪個遠端數據庫服務
+        origin 可以改它的遠端數據庫名稱，例如 git push -u github69 master
+*/
+    git log 
+    git checkout {編號}  // 回頭觀看版本內容
+    git checkout master(分支名稱) // 返回最新的版本
+     
