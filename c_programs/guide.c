@@ -2,6 +2,7 @@
 
 int main(void)
 {
+    printf("cd 資料夾");
     printf("gcc guide.c -o guide \n");
 
 // -o 表示輸出要變成哪個檔名
