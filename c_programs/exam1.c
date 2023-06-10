@@ -3,6 +3,7 @@
 
 void PrtAry(float *);    // (float data[][7]);
 void AvgPrcp(float *);   //
+void MaxTemp(float *);
 
 int main(void)
 {
@@ -25,10 +26,11 @@ int main(void)
         printf("%s\t", name[i]);
     }
     printf("\n");
+
     PrtAry(&data[0][0]); //(data)
     AvgPrcp(&data[0][0]);
+    MaxTemp(&data[0][0]);
 
-    getchar();
     return 0;
 }
 
@@ -44,6 +46,9 @@ void PrtAry(float *ary)     // print array contents
         }
         printf("\n");
     }
+    
+    printf("\n");
+
     return;
 }
 
@@ -57,7 +62,51 @@ void AvgPrcp(float* ary)    // Average rainfall from January to May
 
     avg = sum / 5;
 
-    printf("The Average Precipitation is %.2f mm.",avg );
+    printf("The Average Precipitation is %.2f mm. \n",avg );
     
     return;
+}
+
+void MaxTemp(float *ary)
+{
+    int i,month;
+    float max = ary[0 * 7 + 1];
+
+    for (i = 0; i < 5;i++)
+    {
+        if (max < ary[i * 7 + 1])
+        {
+            max = ary[i * 7 + 1];
+            month = i + 1;
+        }    
+    }
+
+    switch (month)
+    {
+    case 1:
+        printf("The Max Temperature is %.1f degree, it is January.", ary[0 * 7 + 1]);
+        break;
+
+    case 2:
+        printf("The Max Temperature is %.1f degree, it is February.", ary[1 * 7 + 1]);
+        break;
+
+    case 3:
+        printf("The Max Temperature is %.1f degree, it is March.", ary[2 * 7 + 1]);
+        break;
+
+    case 4:
+        printf("The Max Temperature is %.1f degree, it is April.", ary[3 * 7 + 1]);
+        break;
+
+    case 5:
+        printf("The Max Temperature is %.1f degree, it is May.", ary[4 * 7 + 1]);
+        break;
+
+    default:
+        printf("無最高氣溫");
+        break;
+    }
+
+    return ;
 }
