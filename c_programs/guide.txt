@@ -14,8 +14,8 @@ git add .    // 加入索引目錄 .加全部檔案
 git add [檔名] 
    
 
-    git commit -m [名稱] 
-    git log 
+git commit -m [名稱] 
+git log 
 
 // 查看commit 記錄
 //  github create new repository
