@@ -35,10 +35,10 @@ int main(void)
     PrtAry (data);
     AvgPrcp (data);
     MaxTemp (data);
-    printf("排序前...\n");
+    printf("before sorting...\n");
     showRH(data);
     SortRH(data);
-    printf("排序後...\n");
+    printf("after sorting...\n");
     showRH(data);
 
     return 0;
@@ -93,8 +93,8 @@ void showRH(float (*a)[7])
 {
     int i;
 
-    for (i = 0; i < SIZE; i++)
-        printf("%2.0f ", a[i][6]); /* 印出陣列的內容 */
+    for (i = 0; i < SIZE; i++)      // Print out the RH of the array
+        printf("%2.0f ", a[i][6]); 
 
     printf("\n");
 }
@@ -109,12 +109,27 @@ void SortRH(float (*a)[7])
     {
         flag = 1;
         for (j = 0; j < (SIZE - i); j++)
-            if (a[j][6] > a[j + 1][6])
+            if (a[j][6] < a[j + 1][6])      // Swap values in an array
             {
-                temp = a[j][6];        /* 對換陣列內的值 */
+                temp = a[j][6];        
                 a[j][6] = a[j + 1][6];
                 a[j + 1][6] = temp;
                 flag = 0;
+
+                temp = a[j][0];             // also sort by month
+                a[j][0] = a[j + 1][0];
+                a[j + 1][0] = temp; 
             }
     }
+    int ary[5];
+
+    for (i = 0; i < 5;i++)
+    {
+        ary[i] = a[0][i];
+    }
+    
+    const char *months[5] = {"Jan", "Feb", "Mar", "Apr", "May"};
+
+    printf("The relative humidity ranking is %s, %s, %s, %s, %s.", months[ary[0]], months[ary[1]], months[ary[2]], months[ary[3]], months[ary[4]]);
+    // printf("The relative humidity ranking is May, Jan, Feb, Apr, Mar.");
 }
