@@ -4,7 +4,7 @@
 void PrtAry (float (*ary)[7]);
 void AvgPrcp(float (*ary)[7]);
 void MaxTemp(float (*ary)[7]);
-void showRH   (float (*a)[7]);
+void showRH (float (*a)[7]);
 void SortRH (float (*a)[7]);
 
 int main(void)
@@ -109,6 +109,7 @@ void SortRH(float (*a)[7])
     {
         flag = 1;
         for (j = 0; j < (SIZE - i); j++)
+        {
             if (a[j][6] < a[j + 1][6])      // Swap values in an array
             {
                 temp = a[j][6];        
@@ -116,20 +117,28 @@ void SortRH(float (*a)[7])
                 a[j + 1][6] = temp;
                 flag = 0;
 
-                temp = a[j][0];             // also sort by month
+                temp = a[j][0];             // Swap corresponding months
                 a[j][0] = a[j + 1][0];
                 a[j + 1][0] = temp; 
             }
+        }
     }
+/*
     int ary[5];
 
     for (i = 0; i < 5;i++)
     {
         ary[i] = a[0][i];
     }
-    
+*/  
     const char *months[5] = {"Jan", "Feb", "Mar", "Apr", "May"};
 
-    printf("The relative humidity ranking is %s, %s, %s, %s, %s.", months[ary[0]], months[ary[1]], months[ary[2]], months[ary[3]], months[ary[4]]);
+    printf("The relative humidity ranking is %s, %s, %s, %s, %s.\n",
+           months[(int)a[0][0] - 1],
+           months[(int)a[1][0] - 1],
+           months[(int)a[2][0] - 1],
+           months[(int)a[3][0] - 1],
+           months[(int)a[4][0] - 1]);
+
     // printf("The relative humidity ranking is May, Jan, Feb, Apr, Mar.");
 }
